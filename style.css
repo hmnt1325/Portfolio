@@ -167,6 +167,7 @@ section {
   justify-content: center;
   gap: 5rem;
   height: 80vh;
+  margin-top: -2rem;
 }
 
 .section__pic-container {
@@ -189,10 +190,60 @@ section {
   text-align: center;
 }
 
+/* .section__text__p2 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+} */
+
 .section__text__p2 {
   font-size: 1.75rem;
   margin-bottom: 1rem;
+  min-width: 280px;
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
 }
+
+.section__text__p2::before {
+  content: "Frontend Developer";
+  color: rgb(85, 85, 85);
+  animation: word 20s infinite ease-in-out;
+}
+
+.section__text__p2::after {
+  content: "";
+  background-color: white; 
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-left: 3px solid white; 
+  right: 0;
+  animation: cursor 0.7s infinite, typing 20s steps(30, end) infinite;
+}
+
+@keyframes cursor {
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes word {
+  0%, 20% { content: "Frontend Developer"; }
+  21%, 40% { content: "Web Developer"; }
+  41%, 60% { content: "UI/UX Developer"; }
+  61%, 80% { content: "Frontend Developer"; }
+  81%, 100% { content: "UI/UX Developer"; }
+}
+
+@keyframes typing {
+  0%, 100% {
+    width: 100%;
+  }
+  5%, 15%, 25%, 35%, 45%, 55%, 65%, 75%, 85%, 95% {
+    width: 0;
+  }
+}
+
 
 .title {
   font-size: 3rem;
@@ -347,6 +398,11 @@ article {
   width: 10rem;
   justify-content: space-around;
   gap: 0.5rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+article:hover {
+  transform: scale(1.1);
 }
 
 article .icon {
@@ -368,6 +424,14 @@ article .icon {
   border-radius: 2rem;
   width: 90%;
   height: 90%;
+}
+
+#hoveranimation:hover {
+  transform: scale(1.1);
+}
+
+#hoveranimation {
+  transition: transform 0.3s ease-in-out;
 }
 
 .project-title {
